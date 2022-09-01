@@ -37,9 +37,14 @@ select avg(price), model from cars group by model;
 select count(*), model from cars group by model;
 
 # знайти марку машин кількість яких найбільше
-
+SELECT COUNT(model), model
+FROM cars
+GROUP BY model
+ORDER BY COUNT(model) DESC
+LIMIT 1;
 
 # знайти марку машини в назві яких друга та передостання буква "a"
-
+select * from cars where model like '_a%a_';
 
 # знайти всі машини назва моделі яких більше за 8 символів
+select * from cars where length(model) > 8;

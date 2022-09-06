@@ -122,7 +122,9 @@ select d.*, sum(Sum) as credit_Sum from department d
     having sum(Sum) > 5000;
 
 # 22.Знайти клієнтів, які повністю погасили кредити на суму більше ніж 5000
-
+select c.*, Sum, idApplication from client c
+    join application a on c.idClient = a.Client_idClient
+    where CreditState='Returned';
 
 # 23.Знайти максимальний неповернений кредит.
 select max(Sum) from application where CreditState = 'Not returned';
